@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddPolymorphicColumnsToAddressesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('addresses', function (Blueprint $table) {
+            $table->integer('addressable_id');
+            $table->string('addressable_type');
+            $table->string('email')->nullable();
+            $table->string('city')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('addresses', function (Blueprint $table) {
+            
+        });
+    }
+}
